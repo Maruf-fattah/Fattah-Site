@@ -1,0 +1,22 @@
+{
+  "name": "hospital-management-system",
+  "version": "1.0.0",
+  "description": "Production-ready Hospital, Diagnostic & Clinic Management Web Application with HIPAA/GDPR compliance",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "shared"
+  ],
+  "scripts": {
+    "install-all": "npm install && npm run bootstrap",
+    "bootstrap": "npm run build:shared",
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w shared && npm run build -w backend && npm run build -w frontend",
+    "test": "npm run test -w backend && npm run test -w frontend",
+    "lint": "npm run lint -w backend && npm run lint -w frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
